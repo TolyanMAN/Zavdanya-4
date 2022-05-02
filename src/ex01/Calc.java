@@ -5,8 +5,10 @@ import java.io.*;
 /**
  * Contains the implementation of methods for calculating and displaying results.
  *
- * @author Vlada
+ * @author Maksim
+ 
  * @version 1.0
+ 
  */
 
 public class Calc {
@@ -50,6 +52,7 @@ public class Calc {
      * @param arguments - arguments of the computed function.
      * @return function evaluation result.
      */
+    
     private byte calc(double []arguments) {
         int number = (int)((Math.sin(arguments[0]) + Math.sin(arguments[1]) + Math.sin(arguments[2]) + Math.sin(arguments[3])) / 4.0 * 1000);
         byte count = 0;
@@ -58,10 +61,12 @@ public class Calc {
             number *= -1;
         }
 
+        
         while (number > 0) {
             number &= (number - 1);
             count++;
         }
+        
 
         return count;
     }
@@ -73,12 +78,16 @@ public class Calc {
      * @param arguments - arguments of the computed function.
      */
     public byte init(double []arguments) {
+        
+        
         result.setArguments(arguments);
         return result.setOnesNumber(calc(arguments));
+        
     }
 
     /**
      * Displays the result of a calculation.
+     
      */
     public void show() {
         System.out.println(result);
@@ -88,6 +97,7 @@ public class Calc {
      * Saves {@linkplain Calc#result}in a file {@linkplain Calc#FNAME}
      *
      * @throws IOException
+     
      */
     public void save() throws IOException {
         ObjectOutputStream os = new ObjectOutputStream(new
@@ -95,16 +105,20 @@ public class Calc {
         os.writeObject(result);
         os.flush();
         os.close();
+        
     }
+    
 
     /**
      * Restores {@linkplain Calc#result} from a file {@linkplain Calc#FNAME}
      *
      * @throws Exception
+     
      */
     public void restore() throws Exception {
         ObjectInputStream is = new ObjectInputStream(new FileInputStream(FNAME));
         result = (Item2d) is.readObject();
         is.close();
+        
     }
 }
