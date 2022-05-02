@@ -4,38 +4,54 @@ import java.util.Formatter;
 import ex01.Item2d;
 import ex02.ViewResult;
 /** ConcreteProduct
+
  * (design pattern
+ 
  * Factory Method)<br>
+ 
  * Table output
- * @author Vlada
+ 
+ * @author Maksim
+ 
  * @version 1.0
  * @see ViewResult
+ 
  */
 
 public class ViewTable extends ViewResult {
+    
     /** defines the default table width */
+    
     private static final int DEFAULT_WIDTH = 40;
     /** Current table width */
     private int width;
 
+    
     /** Sets {@linkplain ViewTable#width width}
+    
      * value {@linkplain ViewTable#DEFAULT_WIDTH DEFAULT_WIDTH}<br>
+     
      * The superclass constructor is called {@linkplain ViewResult#ViewResult() ViewResult()}
+     
      */
     public ViewTable() {
         width = DEFAULT_WIDTH;
     }
+    
 
     /** Sets {@linkplain ViewTable#width} value <b>width</b><br>
      * The superclass constructor is called {@linkplain ViewResult#ViewResult() ViewResult()}
      * @param width defines the width of the table
      */
     public ViewTable(int width) {
+        
         this.width = width;
     }
 
+    
     /** Sets {@linkplain ViewTable#width} значением <b>width</b><br>
      * The superclass constructor is called {@linkplain ViewResult#ViewResult(int n) ViewResult(int
+     
     n)}
      * @param width defines the width of the table
      * @param n the number of elements in the collection; passed to the super constructor
@@ -82,17 +98,22 @@ public class ViewTable extends ViewResult {
 
     /** Displays the body of the table with a width {@linkplain ViewTable#width} characters  */
     private void outBody() {
+        
         Formatter fmt = new Formatter();
         fmt.format("%s%d%s%2$s%s", "%", (width-3)/2, "d | %", "s\n");
+        
         for(Item2d item : getItems()) {
-            System.out.printf(fmt.toString(), item.getOnesNumber(), Arrays.toString(item.getArguments()));
+            System.out.printf(fmt.toString(), item.getOnesNumber(), Arrays.to
+                             String(item.getArguments()));
         }
     }
 
     /** Overloading (combining, overloading) a superclass method;
      * sets the field {@linkplain ViewTable#width} value <b>width</b><br>
+     
      * Calls the method {@linkplain ViewResult#viewInit() viewInit()}
      * @param width new table width
+     
     9
      */
     public final void init(int width) { // method overloading
@@ -121,6 +142,7 @@ public class ViewTable extends ViewResult {
     public void init(double argumentsStep) { // method overriding
         System.out.print("Initialization... ");
         super.init(argumentsStep);
+        
         System.out.println("done. ");
     }
 
@@ -133,6 +155,7 @@ public class ViewTable extends ViewResult {
 
     /** Table element output<br>{@inheritDoc} */
     @Override
+    
     public void viewBody() {
         outBody();
     }
