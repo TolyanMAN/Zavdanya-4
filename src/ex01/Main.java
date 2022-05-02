@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
  * Calculation and display of results.
  * Contains the implementation of the static main() method.
  *
- * @author Vlada
+ * @author Maksim
  * @version 1.0
  * @see Main#main
  */
@@ -40,38 +40,55 @@ public class Main {
                 case 'q' -> System.out.println("Exit.");
                 case 'v' -> {
                     System.out.println("View current.");
+                    
                     calc.show();
+                    
                 }
                 case 'g' -> {
                     System.out.println("Random generation.");
                     calc.init(new double[]{Math.random() * 360, Math.random() * 360, Math.random() * 360, Math.random() * 360});
+                    
                     calc.show();
                 }
+                    
                 case 's' -> {
                     System.out.println("Save current.");
+                    
                     try {
                         calc.save();
                     } catch (IOException e) {
+                        
                         System.out.println("Serialization error: " + e);
                     }
                     calc.show();
                 }
+                    
+                    
+                    
                 case 'r' -> {
                     System.out.println("Restore last saved.");
+                    
                     try {
+                        
                         calc.restore();
+                        
                     } catch (Exception e) {
+                        
                         System.out.println("Serialization error: " + e);
                     }
                     calc.show();
+                    
                 }
+                    
                 default -> System.out.print("Wrong command. ");
             }
         } while (s.charAt(0) != 'q');
     }
+    
 
     /**
      * Executed when the program starts.
+     
      * The value of the function is calculated for the various arguments.
      * The calculation results are displayed on the screen.
      *
