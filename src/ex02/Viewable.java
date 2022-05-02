@@ -1,10 +1,15 @@
 package ex02;
 /** Creator
  * (design pattern
+ 
  * Factory Method)<br>
+ 
  * Declares a method
+ 
  * "fabricating" objects
- * @author Vlada
+ 
+ * @author Maksim
+ 
  * @version 1.0
  * @see Viewable#getView()
  */
