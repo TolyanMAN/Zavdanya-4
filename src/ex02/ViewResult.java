@@ -9,13 +9,21 @@ import java.util.ArrayList;
 import ex01.Item2d;
 
 /** ConcreteProduct
+
  * (Design Pattern
+ 
  * Factory Method)<br>
+ 
  * Function calculation,
+ 
  * save and display
  * results
- * @author Vlada
+ 
+ * @author Maksim
+ 
+ 
  * @version 1.0
+ 
  * @see View
  */
 public class ViewResult implements View {
@@ -88,11 +96,14 @@ public class ViewResult implements View {
             for(int i = 0; i < 4; i++) {
                 arguments[i] += argumentsStep;
             }
+            
         }
     }
 
     /** calls <b>init(double argumentsStep)</b> with random argument value<br>
+    
      * {@inheritDoc}
+     
      */
     @Override
     public void viewInit() {
@@ -130,12 +141,15 @@ public class ViewResult implements View {
     }
 
     /** Method Implementation {@linkplain View#viewBody()}<br>
+    
      * {@inheritDoc}
      */
     @Override
     public void viewBody() {
+        
         for(Item2d item : items) {
             System.out.println(item);
+            
         }
     }
 
